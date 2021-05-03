@@ -1,0 +1,6 @@
+module Pods_clipmag {
+  umbrella header "Pods-clipmag-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -3,18 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07554097262C27460008A022 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 07554096262C27460008A022 /* HotKey */; };
+		075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */; };
+		078E9229263E857A00651714 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E9228263E857A00651714 /* ListItem.swift */; };
+		07E3A1B6263413310034485D /* ClipboardList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1B4263413310034485D /* ClipboardList.xcdatamodeld */; };
+		07E3A1BA2634147D0034485D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1B92634147D0034485D /* Persistence.swift */; };
+		07E3A1BF26342C580034485D /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1BE26342C580034485D /* MainContainerView.swift */; };
+		07E3A1C3263444290034485D /* HashGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1C2263444290034485D /* HashGenerator.swift */; };
+		07E3A1CF263528000034485D /* MPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1CE263528000034485D /* MPasteboard.swift */; };
+		07E3A1D3263528A00034485D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1D2263528A00034485D /* Configuration.swift */; };
+		07E3A1D82635C94C0034485D /* ClipList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1D72635C94C0034485D /* ClipList.swift */; };
+		07E3A1DB2636FF2C0034485D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1DA2636FF2C0034485D /* KeyboardView.swift */; };
 		07FBC53126283218000F567A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC53026283218000F567A /* AppDelegate.swift */; };
 		07FBC53326283218000F567A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC53226283218000F567A /* ContentView.swift */; };
 		07FBC53526283219000F567A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FBC53426283219000F567A /* Assets.xcassets */; };
 		07FBC53826283219000F567A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FBC53726283219000F567A /* Preview Assets.xcassets */; };
 		07FBC53B26283219000F567A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FBC53926283219000F567A /* Main.storyboard */; };
+		07FBC54626284682000F567A /* BlurVisualHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC54526284682000F567A /* BlurVisualHelper.swift */; };
+		07FBC54E26284825000F567A /* PlayGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC54D26284825000F567A /* PlayGround.swift */; };
+		07FBD74926386F39003ADEA1 /* logo_sec.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FBD74826386F39003ADEA1 /* logo_sec.png */; };
+		07FBD74C263885E2003ADEA1 /* log_three.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FBD74B263885E2003ADEA1 /* log_three.png */; };
+		07FBD74E26397510003ADEA1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD74D26397510003ADEA1 /* DetailView.swift */; };
+		07FBD75026399D66003ADEA1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD74F26399D66003ADEA1 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBoardHelpers.swift; sourceTree = "<group>"; };
+		078E9228263E857A00651714 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		07E3A1B5263413310034485D /* ClipboardList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClipboardList.xcdatamodel; sourceTree = "<group>"; };
+		07E3A1B92634147D0034485D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		07E3A1BE26342C580034485D /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
+		07E3A1C2263444290034485D /* HashGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashGenerator.swift; sourceTree = "<group>"; };
+		07E3A1CE263528000034485D /* MPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPasteboard.swift; sourceTree = "<group>"; };
+		07E3A1D2263528A00034485D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		07E3A1D72635C94C0034485D /* ClipList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipList.swift; sourceTree = "<group>"; };
+		07E3A1DA2636FF2C0034485D /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		07FBC52D26283218000F567A /* clipmag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipmag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FBC53026283218000F567A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07FBC53226283218000F567A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +50,14 @@
 		07FBC53A26283219000F567A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07FBC53C26283219000F567A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07FBC53D26283219000F567A /* clipmag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clipmag.entitlements; sourceTree = "<group>"; };
+		07FBC54526284682000F567A /* BlurVisualHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurVisualHelper.swift; sourceTree = "<group>"; };
+		07FBC54D26284825000F567A /* PlayGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGround.swift; sourceTree = "<group>"; };
+		07FBD74826386F39003ADEA1 /* logo_sec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_sec.png; path = ../../../Documents/ClipMag/logo_sec.png; sourceTree = "<group>"; };
+		07FBD74B263885E2003ADEA1 /* log_three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log_three.png; path = ../../../../Documents/ClipMag/log_three.png; sourceTree = "<group>"; };
+		07FBD74D26397510003ADEA1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		07FBD74F26399D66003ADEA1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		6F8D33E04D5947252243C354 /* Pods-clipmag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clipmag.release.xcconfig"; path = "Target Support Files/Pods-clipmag/Pods-clipmag.release.xcconfig"; sourceTree = "<group>"; };
+		D7358C9A06D0ACDFF2FE4215 /* Pods-clipmag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clipmag.debug.xcconfig"; path = "Target Support Files/Pods-clipmag/Pods-clipmag.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +65,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07554097262C27460008A022 /* HotKey in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07E3A1CA26351D780034485D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				07E3A1B92634147D0034485D /* Persistence.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		07E3A1CB26351D910034485D /* ProjectFiles */ = {
+			isa = PBXGroup;
+			children = (
+				07FBC53426283219000F567A /* Assets.xcassets */,
+				07FBD74B263885E2003ADEA1 /* log_three.png */,
+				07FBC53926283219000F567A /* Main.storyboard */,
+				07FBC53D26283219000F567A /* clipmag.entitlements */,
+			);
+			path = ProjectFiles;
+			sourceTree = "<group>";
+		};
+		07E3A1D62635C8A70034485D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07E3A1DA2636FF2C0034485D /* KeyboardView.swift */,
+				07E3A1D72635C94C0034485D /* ClipList.swift */,
+				07FBD74D26397510003ADEA1 /* DetailView.swift */,
+				078E9228263E857A00651714 /* ListItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		07FBC52426283218000F567A = {
 			isa = PBXGroup;
 			children = (
+				07E3A1BE26342C580034485D /* MainContainerView.swift */,
 				07FBC52F26283218000F567A /* clipmag */,
 				07FBC52E26283218000F567A /* Products */,
+				90ABB203C2BCBF6B7E159324 /* Pods */,
+				28DE0BA073360BF1F7EBB490 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +124,18 @@
 		07FBC52F26283218000F567A /* clipmag */ = {
 			isa = PBXGroup;
 			children = (
+				07E3A1B4263413310034485D /* ClipboardList.xcdatamodeld */,
+				07FBC53C26283219000F567A /* Info.plist */,
+				07E3A1D62635C8A70034485D /* Views */,
+				07FBC53626283219000F567A /* Preview Content */,
+				07E3A1CB26351D910034485D /* ProjectFiles */,
+				07E3A1CA26351D780034485D /* CoreData */,
+				07FBC54426284662000F567A /* Helper */,
 				07FBC53026283218000F567A /* AppDelegate.swift */,
 				07FBC53226283218000F567A /* ContentView.swift */,
-				07FBC53426283219000F567A /* Assets.xcassets */,
-				07FBC53926283219000F567A /* Main.storyboard */,
-				07FBC53C26283219000F567A /* Info.plist */,
-				07FBC53D26283219000F567A /* clipmag.entitlements */,
-				07FBC53626283219000F567A /* Preview Content */,
+				07FBC54D26284825000F567A /* PlayGround.swift */,
+				07FBD74826386F39003ADEA1 /* logo_sec.png */,
+				07E3A1D2263528A00034485D /* Configuration.swift */,
 			);
 			path = clipmag;
 			sourceTree = "<group>";
@@ -74,6 +148,34 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		07FBC54426284662000F567A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				07FBC54526284682000F567A /* BlurVisualHelper.swift */,
+				075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */,
+				07E3A1C2263444290034485D /* HashGenerator.swift */,
+				07E3A1CE263528000034485D /* MPasteboard.swift */,
+				07FBD74F26399D66003ADEA1 /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		28DE0BA073360BF1F7EBB490 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90ABB203C2BCBF6B7E159324 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7358C9A06D0ACDFF2FE4215 /* Pods-clipmag.debug.xcconfig */,
+				6F8D33E04D5947252243C354 /* Pods-clipmag.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,6 +183,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07FBC54026283219000F567A /* Build configuration list for PBXNativeTarget "clipmag" */;
 			buildPhases = (
+				DC5CB25646F7D16E2C9CB63E /* [CP] Check Pods Manifest.lock */,
 				07FBC52926283218000F567A /* Sources */,
 				07FBC52A26283218000F567A /* Frameworks */,
 				07FBC52B26283218000F567A /* Resources */,
@@ -90,6 +193,9 @@
 			dependencies = (
 			);
 			name = clipmag;
+			packageProductDependencies = (
+				07554096262C27460008A022 /* HotKey */,
+			);
 			productName = clipmag;
 			productReference = 07FBC52D26283218000F567A /* clipmag.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 07FBC52426283218000F567A;
+			packageReferences = (
+				07554095262C27460008A022 /* XCRemoteSwiftPackageReference "HotKey" */,
+			);
 			productRefGroup = 07FBC52E26283218000F567A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,19 +242,60 @@
 			files = (
 				07FBC53B26283219000F567A /* Main.storyboard in Resources */,
 				07FBC53826283219000F567A /* Preview Assets.xcassets in Resources */,
+				07FBD74C263885E2003ADEA1 /* log_three.png in Resources */,
+				07FBD74926386F39003ADEA1 /* logo_sec.png in Resources */,
 				07FBC53526283219000F567A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DC5CB25646F7D16E2C9CB63E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-clipmag-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07FBC52926283218000F567A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E3A1DB2636FF2C0034485D /* KeyboardView.swift in Sources */,
+				07E3A1CF263528000034485D /* MPasteboard.swift in Sources */,
+				07FBD75026399D66003ADEA1 /* Helper.swift in Sources */,
+				07E3A1BA2634147D0034485D /* Persistence.swift in Sources */,
+				078E9229263E857A00651714 /* ListItem.swift in Sources */,
+				07FBD74E26397510003ADEA1 /* DetailView.swift in Sources */,
+				07E3A1BF26342C580034485D /* MainContainerView.swift in Sources */,
+				07FBC54E26284825000F567A /* PlayGround.swift in Sources */,
+				07E3A1B6263413310034485D /* ClipboardList.xcdatamodeld in Sources */,
+				07E3A1D82635C94C0034485D /* ClipList.swift in Sources */,
+				075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */,
+				07E3A1C3263444290034485D /* HashGenerator.swift in Sources */,
+				07FBC54626284682000F567A /* BlurVisualHelper.swift in Sources */,
 				07FBC53326283218000F567A /* ContentView.swift in Sources */,
 				07FBC53126283218000F567A /* AppDelegate.swift in Sources */,
+				07E3A1D3263528A00034485D /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -269,9 +419,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -280,20 +431,22 @@
 		};
 		07FBC54126283219000F567A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7358C9A06D0ACDFF2FE4215 /* Pods-clipmag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = clipmag/clipmag.entitlements;
+				CODE_SIGN_ENTITLEMENTS = clipmag/ProjectFiles/clipmag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
+				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = clipmag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -302,20 +455,23 @@
 		};
 		07FBC54226283219000F567A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F8D33E04D5947252243C354 /* Pods-clipmag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = clipmag/clipmag.entitlements;
+				CODE_SIGN_ENTITLEMENTS = clipmag/ProjectFiles/clipmag.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
+				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = clipmag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -344,6 +500,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07554095262C27460008A022 /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07554096262C27460008A022 /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07554095262C27460008A022 /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		07E3A1B4263413310034485D /* ClipboardList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				07E3A1B5263413310034485D /* ClipboardList.xcdatamodel */,
+			);
+			currentVersion = 07E3A1B5263413310034485D /* ClipboardList.xcdatamodel */;
+			path = ClipboardList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 07FBC52526283218000F567A /* Project object */;
 }
