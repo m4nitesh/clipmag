@@ -7,53 +7,52 @@
 
 import SwiftUI
 
-//let cache = NSCache<NSString,NSImage>();
-
 struct DetailView: View {
-    var selectedText: String
-    @State var increaseSize: CGFloat = 1
+    var detailedText: String
+    var applicationImage: NSImage!
+    var darkModeKey: Bool
     var body: some View {
-        return VStack() {
+        VStack(alignment: .trailing) {
+            
+            let isColor = checkIfStringIsColor(str: detailedText)
+            
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top), content: {
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.white.opacity(1))
-                    .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
-                    .shadow(color: .red,radius: 12)
+                    .fill(darkModeKey ? Color.black.opacity(0.1) : Color.white.opacity(0.5))
+                    .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 8))
                 
-                HStack {
-                    Text("Hello Good world")
-                        .lineLimit(1)
-                        .scaleEffect(increaseSize)
-                        .font(Font.system(size: 15, weight: .light))
-                        .foregroundColor(Color.white)
-                    if let image = getImage(bundleId: "com.google.Chrome") {
+                if isColor {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.init(hex: detailedText))
+                        .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 8))
+                }else {
+                    VStack(alignment: .leading) {
+                        ScrollView {
+                            Text(detailedText)
+                                .font(Font.system(size: 11, weight: .regular))
+                                .foregroundColor(darkModeKey ? Color.white : Color.black)
+                        }
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            if let image = applicationImage {
+                                Image(nsImage: image)
+                                    .resizable()
+                                    .frame(width: 32, height: 32, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            }
+                        }
                         
-                        Image(nsImage: image)
-                            .resizable()
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            
-                    }
-
-                }.padding(16)
-                .scaleEffect(increaseSize)
-                .background(Color.init(hex: "#7C6FB4"))
-                .cornerRadius(6)
-                .animation(.default)
-                .onHover(perform: { hovering in
-                    if (hovering) {
-                        increaseSize = 1.05
-                    }else {
-                        increaseSize = 1.0
-                    }
-                })
+                    }.padding(12)
+                    
+                }
             })
+            
         }
-        
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(selectedText: "hello")
+        DetailView(detailedText: "Nothing", applicationImage: getImage(bundleId: "com.google.Chrome"), darkModeKey: false)
     }
 }

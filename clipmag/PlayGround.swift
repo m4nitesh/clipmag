@@ -8,6 +8,7 @@ import SwiftUI
 import Cocoa
 import Swift
 
+
 @available(OSX 11.0, *)
 
 
@@ -24,6 +25,7 @@ struct DiscontentView: View {
                         VStack(spacing: 0) {
                             Text("")
                                 .shadow(radius: 8.0)
+                                
                         }
                     }
                 }

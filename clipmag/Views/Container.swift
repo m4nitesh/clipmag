@@ -10,7 +10,7 @@ import SwiftUI
 let cache = NSCache<NSString,NSImage>();
 
 @available(macOS 11.0, *)
-struct ClipList: View {
+struct Container: View {
     
     @State var selectedRowEvent: ArrowEvent = ArrowEvent(selectedRow: 0, isDown: true)
     @State var hoverRow: Int = -1;
@@ -41,7 +41,12 @@ struct ClipList: View {
                         hoverRow = -1
                         let scrollToRow: Int = selectedRowEvent.isDown ? selectedRowEvent.selectedRow + 1 : selectedRowEvent.selectedRow - 1
                         if (scrollToRow < clips.count && scrollToRow >= 0 && !selectedRowEvent.disabled) {
-                            scrollView.scrollTo(clips[scrollToRow].hashId)
+                            if selectedRowEvent.applicationRestart {
+                                scrollView.scrollTo(clips[scrollToRow].hashId, anchor: .bottom)
+                            } else {
+                                scrollView.scrollTo(clips[scrollToRow].hashId)
+                            }
+                            
                         }
                     })
                     
@@ -49,22 +54,9 @@ struct ClipList: View {
                 .frame(width: metrics.size.width * 0.52)
                 
                 
-                VStack(alignment: .trailing) {
-                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .top), content: {
-                        RoundedRectangle(cornerRadius: 6)
-                            .fill(darkModeKey ? Color.black.opacity(0.1) : Color.white.opacity(0.5))
-                            .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 8))
-                        
-                        
-                        HStack {
-                            Text(selectedRowEvent.selectedRow < clips.count ? clips[selectedRowEvent.selectedRow].content ?? "" : "")
-                                .font(Font.system(size: 11, weight: .regular))
-                                .foregroundColor(darkModeKey ? Color.white : Color.black)
-                        }.padding(16)
-                        
-                    })
-                    
-                }
+                DetailView(detailedText: selectedRowEvent.selectedRow < clips.count ? clips[selectedRowEvent.selectedRow].content ?? "" : "",
+                           applicationImage: getImage(bundleId: selectedRowEvent.selectedRow < clips.count ? clips[selectedRowEvent.selectedRow].type ?? "" : ""),
+                           darkModeKey: darkModeKey)
                 .frame(width: metrics.size.width * 0.48)
             }
             
@@ -74,10 +66,21 @@ struct ClipList: View {
         .onChange(of: searchText, perform: { _ in
             selectedRowEvent.selectedRow = 0
         })
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.willResignActiveNotification)) { _ in
-            selectedRowEvent.selectedRow = 0
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didResignActiveNotification)) { _ in
+            selectedRowEvent = ArrowEvent(selectedRow: 0, isDown: true, applicationRestart: true)
             searchText = ""
         }
     }
 }
 
+
+//
+//func verifyUrl (urlString: String?) -> Bool {
+//    if let urlString = urlString {
+//        if let url = NSURL(string: urlString) {
+////            return NSApplication.shared.canOpenURL(url as URL)
+//            return NSWorkspace.shared.open(<#T##url: URL##URL#>)
+//        }
+//    }
+//    return false
+//}

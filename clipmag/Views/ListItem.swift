@@ -19,18 +19,33 @@ struct ListItem: View {
     
     var body: some View {
         let fColor = darkModeKey ? Color.init("DarkColor") :  Color.accentColor;
-        HStack {
-            if let image = getImage(bundleId: type ?? "" ) {
-                Image(nsImage: image)
-                    .resizable()
-                    .frame(width: 22, height: 22, alignment: .center)
+        
+        let isUrl: Bool = isSelected ? checkIfStringIsUrl(str: clipText) : false
+        
+        return VStack(alignment: .leading) {
+            HStack {
+                if let image = getImage(bundleId: type ?? "" ) {
+                    Image(nsImage: image)
+                        .resizable()
+                        .frame(width: 22, height: 22, alignment: .center)
+                }
+                
+                Text(clipText)
+                    .lineLimit(1)
+                    .font(Font.system(size: 14))
+                    .foregroundColor(isSelected ? Color.white : darkModeKey ? Color.white : Color.init(hex: "#161736"))
+                Spacer()
+            }
+            if isUrl {
+                Text("⌘+↩ to open link")
+                    .font(Font.system(size: 10))
+                    .foregroundColor(Color.white)
+                    .background(Capsule().stroke(Color.white).frame(width: 120, height: 21, alignment: .center))
+                    .padding(.bottom, 6)
+                    .padding(.leading, 44)
+                    .padding(.top, 3)
             }
             
-            Text(clipText)
-                .lineLimit(1)
-                .font(Font.system(size: 14))
-                .foregroundColor(isSelected ? Color.white : darkModeKey ? Color.white : Color.init(hex: "#161736"))
-            Spacer()
         }
         .onTapGesture(perform: {
             selectedRowEvent = ArrowEvent(selectedRow: index, isDown: true, disabled: true)
@@ -42,7 +57,7 @@ struct ListItem: View {
         .background(isSelected ? fColor : hoverRow == index ? fColor.opacity(0.1) : Color.clear)
         .cornerRadius(4, antialiased: true)
         .shadow(radius: isSelected ? 0.0 : 0.0)
-
+        
     }
 }
 

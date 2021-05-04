@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07554097262C27460008A022 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 07554096262C27460008A022 /* HotKey */; };
 		075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */; };
+		0782154B26419A03005A1000 /* MbSwiftUIFirstResponder in Frameworks */ = {isa = PBXBuildFile; productRef = 0782154A26419A03005A1000 /* MbSwiftUIFirstResponder */; };
 		078E9229263E857A00651714 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E9228263E857A00651714 /* ListItem.swift */; };
 		07E3A1B6263413310034485D /* ClipboardList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1B4263413310034485D /* ClipboardList.xcdatamodeld */; };
 		07E3A1BA2634147D0034485D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1B92634147D0034485D /* Persistence.swift */; };
@@ -16,7 +17,7 @@
 		07E3A1C3263444290034485D /* HashGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1C2263444290034485D /* HashGenerator.swift */; };
 		07E3A1CF263528000034485D /* MPasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1CE263528000034485D /* MPasteboard.swift */; };
 		07E3A1D3263528A00034485D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1D2263528A00034485D /* Configuration.swift */; };
-		07E3A1D82635C94C0034485D /* ClipList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1D72635C94C0034485D /* ClipList.swift */; };
+		07E3A1D82635C94C0034485D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1D72635C94C0034485D /* Container.swift */; };
 		07E3A1DB2636FF2C0034485D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1DA2636FF2C0034485D /* KeyboardView.swift */; };
 		07FBC53126283218000F567A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC53026283218000F567A /* AppDelegate.swift */; };
 		07FBC53326283218000F567A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC53226283218000F567A /* ContentView.swift */; };
@@ -25,8 +26,6 @@
 		07FBC53B26283219000F567A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FBC53926283219000F567A /* Main.storyboard */; };
 		07FBC54626284682000F567A /* BlurVisualHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC54526284682000F567A /* BlurVisualHelper.swift */; };
 		07FBC54E26284825000F567A /* PlayGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBC54D26284825000F567A /* PlayGround.swift */; };
-		07FBD74926386F39003ADEA1 /* logo_sec.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FBD74826386F39003ADEA1 /* logo_sec.png */; };
-		07FBD74C263885E2003ADEA1 /* log_three.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FBD74B263885E2003ADEA1 /* log_three.png */; };
 		07FBD74E26397510003ADEA1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD74D26397510003ADEA1 /* DetailView.swift */; };
 		07FBD75026399D66003ADEA1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD74F26399D66003ADEA1 /* Helper.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,7 @@
 		07E3A1C2263444290034485D /* HashGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashGenerator.swift; sourceTree = "<group>"; };
 		07E3A1CE263528000034485D /* MPasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPasteboard.swift; sourceTree = "<group>"; };
 		07E3A1D2263528A00034485D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		07E3A1D72635C94C0034485D /* ClipList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipList.swift; sourceTree = "<group>"; };
+		07E3A1D72635C94C0034485D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		07E3A1DA2636FF2C0034485D /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		07FBC52D26283218000F567A /* clipmag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipmag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FBC53026283218000F567A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +51,6 @@
 		07FBC53D26283219000F567A /* clipmag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clipmag.entitlements; sourceTree = "<group>"; };
 		07FBC54526284682000F567A /* BlurVisualHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurVisualHelper.swift; sourceTree = "<group>"; };
 		07FBC54D26284825000F567A /* PlayGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGround.swift; sourceTree = "<group>"; };
-		07FBD74826386F39003ADEA1 /* logo_sec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_sec.png; path = ../../../Documents/ClipMag/logo_sec.png; sourceTree = "<group>"; };
-		07FBD74B263885E2003ADEA1 /* log_three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = log_three.png; path = ../../../../Documents/ClipMag/log_three.png; sourceTree = "<group>"; };
 		07FBD74D26397510003ADEA1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		07FBD74F26399D66003ADEA1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		6F8D33E04D5947252243C354 /* Pods-clipmag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clipmag.release.xcconfig"; path = "Target Support Files/Pods-clipmag/Pods-clipmag.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07554097262C27460008A022 /* HotKey in Frameworks */,
+				0782154B26419A03005A1000 /* MbSwiftUIFirstResponder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				07FBC53426283219000F567A /* Assets.xcassets */,
-				07FBD74B263885E2003ADEA1 /* log_three.png */,
 				07FBC53926283219000F567A /* Main.storyboard */,
 				07FBC53D26283219000F567A /* clipmag.entitlements */,
 			);
@@ -95,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				07E3A1DA2636FF2C0034485D /* KeyboardView.swift */,
-				07E3A1D72635C94C0034485D /* ClipList.swift */,
+				07E3A1D72635C94C0034485D /* Container.swift */,
 				07FBD74D26397510003ADEA1 /* DetailView.swift */,
 				078E9228263E857A00651714 /* ListItem.swift */,
 			);
@@ -134,7 +131,6 @@
 				07FBC53026283218000F567A /* AppDelegate.swift */,
 				07FBC53226283218000F567A /* ContentView.swift */,
 				07FBC54D26284825000F567A /* PlayGround.swift */,
-				07FBD74826386F39003ADEA1 /* logo_sec.png */,
 				07E3A1D2263528A00034485D /* Configuration.swift */,
 			);
 			path = clipmag;
@@ -195,6 +191,7 @@
 			name = clipmag;
 			packageProductDependencies = (
 				07554096262C27460008A022 /* HotKey */,
+				0782154A26419A03005A1000 /* MbSwiftUIFirstResponder */,
 			);
 			productName = clipmag;
 			productReference = 07FBC52D26283218000F567A /* clipmag.app */;
@@ -225,6 +222,7 @@
 			mainGroup = 07FBC52426283218000F567A;
 			packageReferences = (
 				07554095262C27460008A022 /* XCRemoteSwiftPackageReference "HotKey" */,
+				0782154926419A03005A1000 /* XCRemoteSwiftPackageReference "MbSwiftUIFirstResponder" */,
 			);
 			productRefGroup = 07FBC52E26283218000F567A /* Products */;
 			projectDirPath = "";
@@ -242,8 +240,6 @@
 			files = (
 				07FBC53B26283219000F567A /* Main.storyboard in Resources */,
 				07FBC53826283219000F567A /* Preview Assets.xcassets in Resources */,
-				07FBD74C263885E2003ADEA1 /* log_three.png in Resources */,
-				07FBD74926386F39003ADEA1 /* logo_sec.png in Resources */,
 				07FBC53526283219000F567A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +285,7 @@
 				07E3A1BF26342C580034485D /* MainContainerView.swift in Sources */,
 				07FBC54E26284825000F567A /* PlayGround.swift in Sources */,
 				07E3A1B6263413310034485D /* ClipboardList.xcdatamodeld in Sources */,
-				07E3A1D82635C94C0034485D /* ClipList.swift in Sources */,
+				07E3A1D82635C94C0034485D /* Container.swift in Sources */,
 				075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */,
 				07E3A1C3263444290034485D /* HashGenerator.swift in Sources */,
 				07FBC54626284682000F567A /* BlurVisualHelper.swift in Sources */,
@@ -438,6 +434,7 @@
 				CODE_SIGN_ENTITLEMENTS = clipmag/ProjectFiles/clipmag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
 				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
@@ -447,6 +444,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -463,6 +461,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
 				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
@@ -472,6 +471,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -510,6 +510,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		0782154926419A03005A1000 /* XCRemoteSwiftPackageReference "MbSwiftUIFirstResponder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mobilinked/MbSwiftUIFirstResponder";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +525,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07554095262C27460008A022 /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
+		};
+		0782154A26419A03005A1000 /* MbSwiftUIFirstResponder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0782154926419A03005A1000 /* XCRemoteSwiftPackageReference "MbSwiftUIFirstResponder" */;
+			productName = MbSwiftUIFirstResponder;
 		};
 /* End XCSwiftPackageProductDependency section */
 

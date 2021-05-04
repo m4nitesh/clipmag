@@ -9,6 +9,15 @@
           "revision": "c13662730cb5bc28de4a799854bbb018a90649bf",
           "version": "0.1.3"
         }
+      },
+      {
+        "package": "MbSwiftUIFirstResponder",
+        "repositoryURL": "https://github.com/Mobilinked/MbSwiftUIFirstResponder",
+        "state": {
+          "branch": "main",
+          "revision": "4eafce5e917742334183f9bde9ebeedbcc0b1651",
+          "version": null
+        }
       }
     ]
   },
