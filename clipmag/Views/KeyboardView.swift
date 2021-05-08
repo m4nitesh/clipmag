@@ -16,7 +16,7 @@ struct ArrowEvent: Equatable {
 
 struct KeyboardView: View {
     
-    var clips: FetchedResults<Task>
+    var clips: FetchedResults<HistoryItem>
     var clipboard: Clipboard = Clipboard()
     
     @Binding var selectedRowEvent: ArrowEvent
@@ -59,7 +59,7 @@ struct KeyboardView: View {
                 Button(".") {
                     if sRow < clips.count {
                         let urlString: String
-                        let selectedText: String = clips[sRow].content ?? ""
+                        let selectedText: String = clips[sRow].stringData ?? ""
                         if !checkIfStringIsUrl(str: selectedText) {
                             urlString = "https://www.google.com/search?q=\(selectedText)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
                         }else {

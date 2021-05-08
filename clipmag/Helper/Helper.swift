@@ -42,6 +42,13 @@ func checkIfStringIsColor(str: String) -> Bool {
     return false
 }
 
+func stringArrayToData(stringArray: [String]) -> Data? {
+  return try? JSONSerialization.data(withJSONObject: stringArray, options: [])
+}
+
+func dataToStringArray(_ data: Data) -> [String]? {
+  return (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String]
+}
 
 extension Color {
     init(hex: String) {

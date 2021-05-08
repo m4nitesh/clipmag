@@ -22,10 +22,10 @@ struct ListContainer: View {
     @Binding var searchText: String
     
     var body: some View  {
-        let fetchRequestN: NSFetchRequest<Task> = Task.fetchRequest();
-        fetchRequestN.entity = Task.entity()
-        fetchRequestN.sortDescriptors = [NSSortDescriptor(keyPath: \Task.timestamp, ascending: false)]
-        fetchRequestN.predicate = NSPredicate(format: "content like[c] %@", "*\(searchText)*" )
+        let fetchRequestN: NSFetchRequest<HistoryItem> = HistoryItem.fetchRequest();
+        fetchRequestN.entity = HistoryItem.entity()
+        fetchRequestN.sortDescriptors = [NSSortDescriptor(keyPath: \HistoryItem.timestamp, ascending: false)]
+        fetchRequestN.predicate = NSPredicate(format: "stringData like[c] %@", "*\(searchText)*" )
         fetchRequestN.fetchLimit = FETCH_LIMIT;
         return Container(searchText: $searchText, clips: FetchRequest(
             fetchRequest: fetchRequestN

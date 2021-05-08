@@ -73,21 +73,92 @@ class Clipboard {
             return
         }
         
-        if let text: String = pasteboard.pasteboardItems?.first?.string(forType: .string) {
-            let type: String = frontmostApp?.bundle ?? ""
-            if (!isEmptyString(text)) {
-                _ = PersistenceController.shared.updateOrInsertItem(text: text.trimmingCharacters(in: .whitespacesAndNewlines), type: type)
+        defer {
+            if pasteboard.changeCount != changeCount {
+                changeCount = pasteboard.changeCount
             }
-            print(text, type);
         }
         
-        changeCount = pasteboard.changeCount
+        guard let fItem = pasteboard.pasteboardItems?.first else {
+            return
+        }
+                
+        let applicationId: String = frontmostApp?.bundle ?? ""
+        
+        var text: String = ""
+        var data: Data? = nil
+        var pType: NSPasteboard.PasteboardType? = nil
+        var urlString: String? = nil
+        
+        let types = fItem.types
+        
+        for type in types {
+            if type == .fileURL {
+                urlString = fItem.string(forType: .fileURL) ?? ""
+                pType = NSPasteboard.PasteboardType.fileURL
+            }
+            if type == .tiff {
+                data = fItem.data(forType: .tiff)
+                pType = NSPasteboard.PasteboardType.tiff
+            }
+            if type == .string {
+                text = fItem.string(forType: .string) ?? ""
+                pType = NSPasteboard.PasteboardType.string
+            }
+        }
+        
+        if pType == NSPasteboard.PasteboardType.tiff {
+            text = "Image \(NSDate().timeIntervalSince1970)"
+        } else {
+            if urlString != nil {
+                let blkArr = getBulkCopyArr()
+                data = stringArrayToData(stringArray: blkArr)
+                pType = NSPasteboard.PasteboardType.fileURL
+            }
+        }
+        
+        if !isEmptyString(text) {
+            _ = PersistenceController.shared.updateOrInsertItem(
+                stringData: text.trimmingCharacters(in: .whitespacesAndNewlines),
+                applicationId: applicationId,
+                data: data,
+                pType: pType,
+                urlString: urlString
+            )
+        }
     }
     
-    func copy(_ item: Task) {
+    private func getBulkCopyArr() -> [String] {
+        var fileUrlArr: [String] = []
+        
+        for trash in pasteboard.pasteboardItems ?? [] {
+            if let fUrl = trash.string(forType: .fileURL) {
+                fileUrlArr.append(fUrl)
+            }
+        }
+        return fileUrlArr
+
+    }
+    
+    func copy(_ item: HistoryItem) {
+        
         pasteboard.clearContents()
-        if ((item.content) != nil) {
-            pasteboard.setString(item.content!, forType: NSPasteboard.PasteboardType.string)
+        let pType = NSPasteboard.PasteboardType.init(item.pType ?? NSPasteboard.PasteboardType.string.rawValue)
+        pasteboard.setString(item.stringData!, forType: .string)
+
+        if pType == .fileURL {
+            if let data = item.binaryData {
+                let itemsToPaste = dataToStringArray(data) ?? []
+                let imgUrls = itemsToPaste.map() { item in
+                    return NSPasteboardItem.init(pasteboardPropertyList: item, ofType: .fileURL)
+                }
+                pasteboard.writeObjects(imgUrls as! [NSPasteboardWriting])
+            } else {
+                pasteboard.setString(item.urlString!, forType: .fileURL)
+            }
+            
+        } else if pType == .tiff {
+            pasteboard.setData(item.binaryData, forType: .tiff)
         }
         NSApp.hide(nil)
         paste()
@@ -99,13 +170,12 @@ class Clipboard {
         event1?.post(tap: CGEventTapLocation.cghidEventTap);
         
         let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x09, keyDown: false) // cmd-v up
-        //event2?.flags = CGEventFlags.maskCommand
+        event2?.flags = CGEventFlags.maskCommand
         event2?.post(tap: CGEventTapLocation.cghidEventTap)
     }
     
     
     private func isEmptyString(_ str: String) -> Bool {
-        
         return str.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     

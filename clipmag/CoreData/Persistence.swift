@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import AppKit
+
 
 struct PersistenceController {
     static let shared = PersistenceController();
@@ -42,7 +44,7 @@ struct PersistenceController {
     func checkIfItemExist(hashId: String) -> Bool {
 
         let managedContext = PersistenceController.shared.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "HistoryItem")
         fetchRequest.fetchLimit =  1
         fetchRequest.predicate = NSPredicate(format: "hashId == %@" ,hashId)
 
@@ -59,22 +61,20 @@ struct PersistenceController {
         }
     }
     
-    func updateOrInsertItem(text: String, type: String) -> Bool {
+    func updateOrInsertItem(stringData: String, applicationId: String, data: Data?, pType: NSPasteboard.PasteboardType?, urlString: String?) -> Bool {
         
-        let hashId = SHA256(str: text);
-        
-
+        let hashId = SHA256(str: stringData);
         let managedContext = PersistenceController.shared.viewContext
-        let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
+        let fetchRequest = NSFetchRequest<HistoryItem>(entityName: "HistoryItem")
         fetchRequest.fetchLimit =  1
         fetchRequest.predicate = NSPredicate(format: "hashId == %@" ,hashId)
 
         do {
             let items = try managedContext.fetch(fetchRequest)
             if items.count == 0 {
-                addClipboardItem(hashId: hashId, text: text, type: type)
+                addClipboardItem(hashId: hashId, stringData: stringData, applicationId: applicationId, data: data, pType: pType, urlString: urlString)
             }else {
-                var task: Task = Task(context: PersistenceController.shared.viewContext)
+                var task: HistoryItem = HistoryItem(context: PersistenceController.shared.viewContext)
                 task = items.first!;
                 task.timestamp = Date()
                 PersistenceController.shared.saveContext();
@@ -88,12 +88,15 @@ struct PersistenceController {
         }
     }
     
-    func addClipboardItem(hashId: String, text: String, type: String) {
-        let clipItem = Task(context: PersistenceController.shared.viewContext)
+    func addClipboardItem(hashId: String, stringData: String, applicationId: String, data: Data?, pType: NSPasteboard.PasteboardType?, urlString: String?) {
+        let clipItem = HistoryItem(context: PersistenceController.shared.viewContext)
         clipItem.timestamp = Date()
         clipItem.hashId = hashId
-        clipItem.content = text;
-        clipItem.type = type;
+        clipItem.stringData = stringData;
+        clipItem.applicationId = applicationId;
+        clipItem.binaryData = data
+        clipItem.pType = pType?.rawValue
+        clipItem.urlString = urlString
         PersistenceController.shared.saveContext()
     }
 
@@ -114,6 +117,26 @@ struct PersistenceController {
             print("Detele all data in \(entity) error :", error)
         }
     }
+    
+//    func migrateToHistoryItem(_ entity:String) {
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+//        fetchRequest.returnsObjectsAsFaults = false
+//        do {
+//            let results = try PersistenceController.shared.viewContext.fetch(fetchRequest)
+//            for object in results {
+//                guard let objectData = object as? Task else {continue}
+//                let clipItem = HistoryItem(context: PersistenceController.shared.viewContext)
+//                clipItem.timestamp = objectData.timestamp
+//                clipItem.hashId = objectData.hashId
+//                clipItem.stringData = objectData.content;
+//                clipItem.applicationId = objectData.type;
+//                PersistenceController.shared.saveContext()
+//            }
+//        } catch let error {
+//            print("Detele all data in \(entity) error :", error)
+//        }
+//    }
+
 
     
 }

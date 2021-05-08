@@ -17,7 +17,7 @@ struct Container: View {
     var clipboard: Clipboard = Clipboard()
     
     @Binding var searchText: String
-    @FetchRequest var clips: FetchedResults<Task>
+    @FetchRequest var clips: FetchedResults<HistoryItem>
     @AppStorage("darkModeEnabled") private var darkModeKey = false
         
     var body: some View {
@@ -27,9 +27,9 @@ struct Container: View {
                     ScrollView{
                         VStack(spacing: 0) {
                             ForEach(Array(zip(clips.indices, clips)), id: \.1.hashId) { index, clipItem in
-                                if let clipText = clipItem.content {
+                                if let clipText = clipItem.stringData {
                                     let isSelected: Bool = (selectedRowEvent.selectedRow == index) ? true : false
-                                    ListItem(isSelected: isSelected, hoverRow: $hoverRow, selectedRowEvent: $selectedRowEvent, type: clipItem.type, index: index, clipText: clipText)
+                                    ListItem(isSelected: isSelected, hoverRow: $hoverRow, selectedRowEvent: $selectedRowEvent, type: clipItem.applicationId, index: index, clipText: clipText)
                                 }
                             }
                         }
@@ -53,11 +53,14 @@ struct Container: View {
                 }
                 .frame(width: metrics.size.width * 0.52)
                 
-                
-                DetailView(detailedText: selectedRowEvent.selectedRow < clips.count ? clips[selectedRowEvent.selectedRow].content ?? "" : "",
-                           applicationImage: getImage(bundleId: selectedRowEvent.selectedRow < clips.count ? clips[selectedRowEvent.selectedRow].type ?? "" : ""),
-                           darkModeKey: darkModeKey)
-                .frame(width: metrics.size.width * 0.48)
+                if selectedRowEvent.selectedRow < clips.count {
+                    DetailView(
+                        historyItem: clips[selectedRowEvent.selectedRow],
+                        detailedText: clips[selectedRowEvent.selectedRow].stringData ?? "",
+                               applicationImage: getImage(bundleId: clips[selectedRowEvent.selectedRow].applicationId ?? ""),
+                               darkModeKey: darkModeKey)
+                    .frame(width: metrics.size.width * 0.48)
+                }
             }
             
             KeyboardView(clips: clips, selectedRowEvent: $selectedRowEvent)
@@ -72,15 +75,3 @@ struct Container: View {
         }
     }
 }
-
-
-//
-//func verifyUrl (urlString: String?) -> Bool {
-//    if let urlString = urlString {
-//        if let url = NSURL(string: urlString) {
-////            return NSApplication.shared.canOpenURL(url as URL)
-//            return NSWorkspace.shared.open(<#T##url: URL##URL#>)
-//        }
-//    }
-//    return false
-//}

@@ -16,7 +16,6 @@ struct DiscontentView: View {
     @State var selectedRow: Int = 0
         @State var isEditing: Bool = false
         @State var text: String = ""
-//        private var clips: FetchedResults<Task>
         
         var body: some View {
             HStack {
@@ -36,13 +35,6 @@ struct DiscontentView: View {
             .padding(.vertical, 10)
         }
 }
-
-import CoreData
-
-struct Test {
-    let task: Task
-}
-
 
 @available(OSX 11.0, *)
 struct DiscontentView_Previews: PreviewProvider {
