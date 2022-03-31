@@ -18,7 +18,7 @@ struct ListItem: View {
     @AppStorage("darkModeEnabled") private var darkModeKey = false
     
     var body: some View {
-        let fColor = darkModeKey ? Color.init("DarkColor") :  Color.accentColor;
+        let fColor = Color.init("Magenta");
         
         let isUrl: Bool = isSelected ? checkIfStringIsUrl(str: clipText) : false
         

@@ -18,12 +18,12 @@ struct DetailView: View {
             let isColor = checkIfStringIsColor(str: detailedText)
                         
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top), content: {
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(darkModeKey ? Color.black.opacity(0.1) : Color.white.opacity(0.5))
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(darkModeKey ? Color.black.opacity(0.2) : Color.white.opacity(0.27))
                     .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 8))
                 
                 if isColor {
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: 4)
                         .fill(Color.init(hex: detailedText))
                         .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 8))
                 }else {

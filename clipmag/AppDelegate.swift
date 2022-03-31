@@ -10,7 +10,7 @@ import SwiftUI
 import HotKey
 
 
-@available(macOS 11.0, *)
+@available(macOS 12.0, *)
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -58,17 +58,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem = statusBar.statusItem(
             withLength: NSStatusItem.squareLength)
         //        statusBarItem.button?.title = "🌯"
-        statusBarItem.button?.image = NSImage(named: "log_three_gray")
+        let menuImage = NSImage(named: "log_four_gray")
+        menuImage?.isTemplate = true
+        statusBarItem.button?.image = menuImage
         let statusBarMenu = NSMenu(title: "Cap Status Bar Menu")
         statusBarMenu.minimumWidth = 200
         statusBarItem.menu = statusBarMenu
         statusBarMenu.addItem(
-            withTitle: "Toggle Cligmag  ",
+            withTitle: "Toggle (⌃ + space)",
             action: #selector(AppDelegate.toggleApp),
             keyEquivalent: "")
         
         statusBarMenu.addItem(
-            withTitle: "© ClipMag 2021 Build: 1.01",
+            withTitle: "© ClipMag 2021 Build: 15.1\(Bundle.main.infoDictionary?["CFBundleVersion"] ?? "1")",
             action: nil,
             keyEquivalent: "")
 
@@ -118,3 +120,9 @@ extension NSTableView {
 }
 
 
+extension View {
+    @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
+        if shouldHide { hidden() }
+        else { self }
+    }
+}

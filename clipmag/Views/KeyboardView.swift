@@ -20,15 +20,15 @@ struct KeyboardView: View {
     var clipboard: Clipboard = Clipboard()
     
     @Binding var selectedRowEvent: ArrowEvent
+    
 
     
     var body: some View {
         if #available(OSX 11.0, *) {
-            let sRow = selectedRowEvent.selectedRow
             HStack {
                 Button(".") {
                     if (selectedRowEvent.selectedRow < clips.count - 1) {
-                        selectedRowEvent = ArrowEvent(selectedRow: sRow + 1,isDown: true)
+                        selectedRowEvent = ArrowEvent(selectedRow: selectedRowEvent.selectedRow + 1,isDown: true)
                     }
                 }
                 .frame(width: 0, height: 0)
@@ -38,7 +38,7 @@ struct KeyboardView: View {
 
                 Button(".") {
                     if (selectedRowEvent.selectedRow >= 1) {
-                        selectedRowEvent = ArrowEvent(selectedRow: sRow - 1,isDown: false)
+                        selectedRowEvent = ArrowEvent(selectedRow: selectedRowEvent.selectedRow - 1,isDown: false)
                     }
                 }
                 .frame(width: 0, height: 0)
@@ -46,8 +46,9 @@ struct KeyboardView: View {
                 .keyboardShortcut(.upArrow, modifiers: [])
                 
                 Button(".") {
-                    if sRow < clips.count {
-                        clipboard.copy(clips[sRow])
+                    print("Yoo == ",selectedRowEvent.selectedRow, clips[selectedRowEvent.selectedRow])
+                    if selectedRowEvent.selectedRow < clips.count {
+                        clipboard.copy(clips[selectedRowEvent.selectedRow])
                     } else {
                         NSApp.hide(nil)
                     }
@@ -57,9 +58,9 @@ struct KeyboardView: View {
                 .keyboardShortcut(.return, modifiers: [])
                 
                 Button(".") {
-                    if sRow < clips.count {
+                    if selectedRowEvent.selectedRow < clips.count {
                         let urlString: String
-                        let selectedText: String = clips[sRow].stringData ?? ""
+                        let selectedText: String = clips[selectedRowEvent.selectedRow].stringData ?? ""
                         if !checkIfStringIsUrl(str: selectedText) {
                             urlString = "https://www.google.com/search?q=\(selectedText)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
                         }else {

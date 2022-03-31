@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070DDB37264D878C00CBECAB /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070DDB36264D878C00CBECAB /* Interstitial.swift */; };
 		07554097262C27460008A022 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 07554096262C27460008A022 /* HotKey */; };
 		075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */; };
 		0782154B26419A03005A1000 /* MbSwiftUIFirstResponder in Frameworks */ = {isa = PBXBuildFile; productRef = 0782154A26419A03005A1000 /* MbSwiftUIFirstResponder */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070DDB36264D878C00CBECAB /* Interstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		075540E4262EB8DE0008A022 /* PasteBoardHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBoardHelpers.swift; sourceTree = "<group>"; };
 		078E9228263E857A00651714 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		07E3A1B5263413310034485D /* ClipboardList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClipboardList.xcdatamodel; sourceTree = "<group>"; };
@@ -81,9 +83,9 @@
 		07E3A1CB26351D910034485D /* ProjectFiles */ = {
 			isa = PBXGroup;
 			children = (
+				07FBC53D26283219000F567A /* clipmag.entitlements */,
 				07FBC53426283219000F567A /* Assets.xcassets */,
 				07FBC53926283219000F567A /* Main.storyboard */,
-				07FBC53D26283219000F567A /* clipmag.entitlements */,
 			);
 			path = ProjectFiles;
 			sourceTree = "<group>";
@@ -95,6 +97,7 @@
 				07E3A1D72635C94C0034485D /* Container.swift */,
 				07FBD74D26397510003ADEA1 /* DetailView.swift */,
 				078E9228263E857A00651714 /* ListItem.swift */,
+				070DDB36264D878C00CBECAB /* Interstitial.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,7 +207,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					07FBC52C26283218000F567A = {
 						CreatedOnToolsVersion = 12.4;
@@ -284,6 +287,7 @@
 				07FBD74E26397510003ADEA1 /* DetailView.swift in Sources */,
 				07E3A1BF26342C580034485D /* MainContainerView.swift in Sources */,
 				07FBC54E26284825000F567A /* PlayGround.swift in Sources */,
+				070DDB37264D878C00CBECAB /* Interstitial.swift in Sources */,
 				07E3A1B6263413310034485D /* ClipboardList.xcdatamodeld in Sources */,
 				07E3A1D82635C94C0034485D /* Container.swift in Sources */,
 				075540E5262EB8DE0008A022 /* PasteBoardHelpers.swift in Sources */,
@@ -432,9 +436,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = clipmag/ProjectFiles/clipmag.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
 				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
@@ -444,7 +449,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -457,11 +462,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = clipmag/ProjectFiles/clipmag.entitlements;
+				CODE_SIGN_ENTITLEMENTS = clipmag/clipmagRelease.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"clipmag/Preview Content\"";
 				DEVELOPMENT_TEAM = 7XC5597YXA;
 				ENABLE_PREVIEWS = YES;
@@ -471,7 +476,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = doagain.clipmag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

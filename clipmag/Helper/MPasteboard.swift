@@ -32,7 +32,21 @@ class Clipboard {
     private var enabledTypes: Set<NSPasteboard.PasteboardType> { UserDefaults.standard.enabledPasteboardTypes }
     private var disabledTypes: Set<NSPasteboard.PasteboardType> { supportedTypes.subtracting(enabledTypes) }
     
+    private var accessibilityAlert: NSAlert {
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = NSLocalizedString("“Clipmag” requires accessibility permission to auto paste.", comment: "")
+        alert.informativeText = NSLocalizedString("Grant access to this application in Preferences -> Security & Privacy -> Accessibility -> + Clipmag", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: ""))
+        //        alert.addButton(withTitle: NSLocalizedString("Deny", comment: ""))
+        alert.icon = NSImage(named: "NSSecurity")
+        return alert
+    }
     private var accessibilityAllowed: Bool { AXIsProcessTrustedWithOptions(nil) }
+    private let accessibilityURL = URL(
+        string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+    )
+    
     
     private var frontmostApp: (name: String, bundle: String, icon: NSImage)?
     
@@ -82,7 +96,7 @@ class Clipboard {
         guard let fItem = pasteboard.pasteboardItems?.first else {
             return
         }
-                
+        
         let applicationId: String = frontmostApp?.bundle ?? ""
         
         var text: String = ""
@@ -137,7 +151,7 @@ class Clipboard {
             }
         }
         return fileUrlArr
-
+        
     }
     
     func copy(_ item: HistoryItem) {
@@ -145,7 +159,6 @@ class Clipboard {
         pasteboard.clearContents()
         let pType = NSPasteboard.PasteboardType.init(item.pType ?? NSPasteboard.PasteboardType.string.rawValue)
         pasteboard.setString(item.stringData!, forType: .string)
-
         if pType == .fileURL {
             if let data = item.binaryData {
                 let itemsToPaste = dataToStringArray(data) ?? []
@@ -160,11 +173,17 @@ class Clipboard {
         } else if pType == .tiff {
             pasteboard.setData(item.binaryData, forType: .tiff)
         }
-        NSApp.hide(nil)
         paste()
     }
     
     func paste() {
+        NSApp.hide(nil)
+        guard accessibilityAllowed else {
+            // Show accessibility window async to allow menu to close.
+            DispatchQueue.main.async(execute: showAccessibilityWindow)
+            return
+        }
+        
         let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x09, keyDown: true); // cmd-v down
         event1?.flags = CGEventFlags.maskCommand;
         event1?.post(tap: CGEventTapLocation.cghidEventTap);
@@ -186,6 +205,14 @@ class Clipboard {
         return types.isDisjoint(with: enabledTypes) ||
             !types.isDisjoint(with: ignoredTypes)
     }
+    
+    
+    private func showAccessibilityWindow() {
+        if let url = accessibilityURL {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
     
     
 }
